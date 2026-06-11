@@ -1,0 +1,14 @@
+import { Router } from 'express';
+import { deleteUser, listUserLoginHistory, listUsers, mergeUsers, permanentlyDeleteUser, updateUser } from '../../controllers/admin/index.js';
+import { restrictToPermission, restrictToPermissionOrSelfAdminRecovery } from '../../middleware/permissions.js';
+import { adminActionRateLimiter } from '../../middleware/rateLimiter.js';
+import { validateBody, validateParams, validateQuery } from '../../middleware/validate.js';
+import { idParamsSchema, listUsersQuerySchema, userMergeSchema, userUpdateSchema } from '../../validators/adminValidators.js';
+const router = Router();
+router.get('/users', restrictToPermission('user:read'), validateQuery(listUsersQuerySchema), listUsers);
+router.post('/users/merge', restrictToPermission('user:write'), adminActionRateLimiter, validateBody(userMergeSchema), mergeUsers);
+router.get('/users/:id/login-history', restrictToPermission('user:read'), validateParams(idParamsSchema), listUserLoginHistory);
+router.patch('/users/:id', restrictToPermissionOrSelfAdminRecovery('user:write'), adminActionRateLimiter, validateParams(idParamsSchema), validateBody(userUpdateSchema), updateUser);
+router.delete('/users/:id', restrictToPermission('user:delete'), adminActionRateLimiter, validateParams(idParamsSchema), deleteUser);
+router.delete('/users/:id/permanent', restrictToPermission('user:delete'), adminActionRateLimiter, validateParams(idParamsSchema), permanentlyDeleteUser);
+export default router;

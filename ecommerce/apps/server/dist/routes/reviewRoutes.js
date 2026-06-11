@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { createReview, listProductReviews, toggleHelpfulVote } from '../controllers/reviewController.js';
+import { optionalAuth, protect, requireVerifiedEmail } from '../middleware/auth.js';
+import { validateBody, validateParams } from '../middleware/validate.js';
+import { createReviewSchema, reviewIdParamsSchema, reviewProductParamsSchema } from '../validators/reviewValidators.js';
+const router = Router();
+router.get('/product/:productId', optionalAuth, validateParams(reviewProductParamsSchema), listProductReviews);
+router.post('/', protect, requireVerifiedEmail, validateBody(createReviewSchema), createReview);
+router.post('/:id/helpful', protect, validateParams(reviewIdParamsSchema), toggleHelpfulVote);
+export default router;

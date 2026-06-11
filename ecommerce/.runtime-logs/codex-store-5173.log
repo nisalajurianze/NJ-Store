@@ -1,0 +1,24 @@
+
+> @njstore/store-client@1.0.0 dev
+> vite --port 5173
+
+[2m06:33:25[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m Re-optimizing dependencies because lockfile has changed
+
+  [32m[1mVITE[22m v6.4.2[39m  [2mready in [0m[1m341[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://172.19.0.1:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.8.101:[1m5173[22m/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[2m07:14:40[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/main.jsx.tsx, /src/index.css[22m
+[2m07:14:40[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m
+[2m07:23:10[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/product/ProductCard.tsx, /src/index.css[22m
+[2m07:23:20[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/product/ProductCard.tsx, /src/index.css[22m
+[2m07:23:42[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/components/product/ProductCard.test.tsx[22m
+[2m07:26:25[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/home/FeaturedCarousel.tsx[22m
+[2m07:26:25[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/FeaturedCarousel.tsx, /src/index.css[22m
+[2m15:42:01[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/context/AuthContext.tsx, /src/index.css[22m
+[2m15:43:06[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/context/AuthContext.test.tsx[22m
+[2m15:44:37[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/main.jsx.tsx[22m
+[2m15:48:10[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Shop.tsx, /src/index.css[22m
+[2m15:48:24[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/layout/Navbar.tsx, /src/index.css[22m

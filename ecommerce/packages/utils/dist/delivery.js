@@ -1,0 +1,35 @@
+const BUSINESS_DAY_RANGE_PATTERN = /^(\d+)(?:\s*-\s*(\d+))?$/;
+export const parseBusinessDayRange = (value) => {
+    if (!value) {
+        return { min: 2, max: 5 };
+    }
+    const match = BUSINESS_DAY_RANGE_PATTERN.exec(value.trim());
+    if (!match) {
+        return { min: 2, max: 5 };
+    }
+    const first = Number(match[1]);
+    const second = match[2] ? Number(match[2]) : first;
+    const min = Math.max(0, Math.min(first, second));
+    const max = Math.max(0, Math.max(first, second));
+    return { min, max };
+};
+export const addBusinessDays = (startDate, businessDays) => {
+    const nextDate = new Date(startDate);
+    let remaining = Math.max(0, businessDays);
+    while (remaining > 0) {
+        nextDate.setDate(nextDate.getDate() + 1);
+        const day = nextDate.getDay();
+        if (day !== 0 && day !== 6) {
+            remaining -= 1;
+        }
+    }
+    return nextDate;
+};
+export const formatEstimatedDeliveryWindow = (businessDayWindow, referenceDate = new Date(), locale, dateOptions = { month: 'short', day: 'numeric' }) => {
+    const { min, max } = parseBusinessDayRange(businessDayWindow);
+    const startDate = addBusinessDays(referenceDate, min);
+    const endDate = addBusinessDays(referenceDate, max);
+    const startLabel = startDate.toLocaleDateString(locale, dateOptions);
+    const endLabel = endDate.toLocaleDateString(locale, dateOptions);
+    return min === max ? startLabel : `${startLabel} - ${endLabel}`;
+};

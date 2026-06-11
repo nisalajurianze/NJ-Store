@@ -1,0 +1,1 @@
+import{r as e}from"./react-vendor-BFGqPeuW.js";const m=()=>{const[s,l]=e.useState({}),o=e.useCallback(a=>!!(a&&s[a]),[s]),c=e.useCallback(a=>{a&&l(t=>t[a]?t:{...t,[a]:!0})},[]),r=e.useCallback(()=>{l({})},[]);return{failedImageUrls:s,isImageFailed:o,markImageFailed:c,resetFailedImages:r}};export{m as u};

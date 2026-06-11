@@ -1,0 +1,31 @@
+{
+  "name": "njstore-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": "22.x"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace @njstore/server\" \"npm run dev --workspace @njstore/store-client\" \"npm run dev --workspace @njstore/admin-client\"",
+    "dev:windows": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./scripts/start-local-dev.ps1",
+    "dev:windows:stop": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./scripts/stop-local-dev.ps1",
+    "dev:store": "npm run dev --workspace @njstore/store-client",
+    "dev:admin": "npm run dev --workspace @njstore/admin-client",
+    "dev:server": "npm run dev --workspace @njstore/server",
+    "docker:mongo:up": "docker compose up -d mongo",
+    "docker:mongo:down": "docker compose stop mongo",
+    "build": "npm run build --workspace @njstore/types && npm run build --workspace @njstore/utils && npm run build --workspace @njstore/ui && npm run build --workspace @njstore/server && npm run build --workspace @njstore/store-client && npm run build --workspace @njstore/admin-client",
+    "test": "npm run test --workspace @njstore/types && npm run test --workspace @njstore/utils && npm run test --workspace @njstore/ui && npm run test --workspace @njstore/server && npm run test --workspace @njstore/store-client && npm run test --workspace @njstore/admin-client",
+    "lint": "npm run lint --workspace @njstore/server && npm run lint --workspace @njstore/store-client && npm run lint --workspace @njstore/admin-client",
+    "seed": "npm run seed --workspace @njstore/server",
+    "seed:reset": "npm run seed:reset --workspace @njstore/server",
+    "migrate:brands": "npm run migrate:brands --workspace @njstore/server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

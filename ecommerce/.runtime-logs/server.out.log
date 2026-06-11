@@ -1,0 +1,10 @@
+
+> njstore-monorepo@1.0.0 dev:server
+> npm run dev --workspace @njstore/server
+
+
+> @njstore/server@1.0.0 dev
+> tsx watch src/server.ts
+
+[2026-03-22T14:09:17.280Z] INFO: MongoDB connected successfully
+[2026-03-22T14:09:17.284Z] INFO: Server listening on port 5000

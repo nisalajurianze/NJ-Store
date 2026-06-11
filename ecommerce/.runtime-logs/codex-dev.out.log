@@ -1,0 +1,4 @@
+
+> njstore-monorepo@1.0.0 dev
+> concurrently "npm run dev --workspace @njstore/server" "npm run dev --workspace @njstore/store-client" "npm run dev --workspace @njstore/admin-client"
+

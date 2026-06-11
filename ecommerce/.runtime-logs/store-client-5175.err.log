@@ -1,0 +1,135 @@
+[2m04:59:15[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/site-config[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:16[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/categories[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:16[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:16[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/products?limit=12&page=1[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:16[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/products/price-range[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:16[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/categories[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:16[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/v1/brands?limit=50&sort=sortOrder[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:17[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:19[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:24[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:29[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:34[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:39[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:44[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:49[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:54[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m04:59:59[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m05:00:04[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m05:00:09[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m05:00:14[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m05:00:19[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m05:00:24[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:19:51[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+[2m21:19:51[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:19:54[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:20:55[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+[2m21:20:56[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:20:58[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:21:03[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:21:31[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+[2m21:21:33[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:21:35[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:21:38[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:25:22[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+[2m21:25:24[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:25:26[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:25:31[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:25:43[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+[2m21:25:45[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:25:46[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:25:48[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:26:07[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)
+[2m21:26:08[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:26:10[22m [31m[1m[vite][22m[39m [31mws proxy error:[39m
+Error: connect ECONNREFUSED 127.0.0.1:5000
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)
+[2m21:49:55[22m [31m[1m[vite][22m[39m [31mws proxy socket error:[39m
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)

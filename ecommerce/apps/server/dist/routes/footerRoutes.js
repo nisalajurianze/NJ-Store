@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import { getPublicFooter, updateFooter } from '../controllers/siteConfigController.js';
+import { protect, restrictTo } from '../middleware/auth.js';
+import { restrictToPermission } from '../middleware/permissions.js';
+import { adminActionRateLimiter } from '../middleware/rateLimiter.js';
+import { validateBody } from '../middleware/validate.js';
+import { footerSettingsSchema } from '../validators/adminValidators.js';
+const router = Router();
+router.get('/', getPublicFooter);
+router.put('/', protect, restrictTo('admin', 'staff'), restrictToPermission('setting:write'), adminActionRateLimiter, validateBody(footerSettingsSchema), updateFooter);
+export default router;

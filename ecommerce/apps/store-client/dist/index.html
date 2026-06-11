@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="NJ Store offers premium electronics shopping, quotation review, and secure order tracking across Sri Lanka."
+    />
+    <meta
+      name="keywords"
+      content="NJ Store,electronics store Sri Lanka,online electronics shopping,premium electronics,quotation checkout,secure order tracking"
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta property="og:title" content="NJ Store" />
+    <meta
+      property="og:description"
+      content="Shop premium electronics, review quotations, and track orders securely with NJ Store."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="NJ Store" />
+    <meta property="og:image" content="/og-default.png" />
+    <meta property="og:image:alt" content="NJ Store" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NJ Store" />
+    <meta name="twitter:description" content="Shop premium electronics, review quotations, and track orders securely with NJ Store." />
+    <meta name="twitter:image" content="/og-default.png" />
+    <meta name="application-name" content="NJ Store" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="NJ Store" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#0A1F44" />
+    <title>NJ Store</title>
+    <style>
+      :root {
+        background: #07111f;
+        color-scheme: dark;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #07111f;
+        color: #fff;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+      }
+
+      .initial-app-shell {
+        box-sizing: border-box;
+        min-height: calc(100svh + 12rem);
+        padding: 0.9rem 1rem 2rem;
+        background:
+          radial-gradient(circle at 18% 0%, rgba(212, 175, 55, 0.12), transparent 26rem),
+          linear-gradient(180deg, #07111f 0%, #0b1526 100%);
+      }
+
+      .initial-app-header,
+      .initial-hero,
+      .initial-side-card {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.045);
+        box-shadow: 0 18px 42px rgba(3, 10, 26, 0.18);
+      }
+
+      .initial-app-header {
+        margin: 0 auto 0.65rem;
+        display: flex;
+        max-width: 1180px;
+        height: 4.25rem;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 1.25rem;
+        padding: 0 1rem;
+      }
+
+      .initial-logo {
+        font-size: 1.06rem;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .initial-nav {
+        display: none;
+        gap: 0.6rem;
+      }
+
+      .initial-chip,
+      .initial-line,
+      .initial-block,
+      .initial-orb {
+        animation: initial-pulse 1.4s ease-in-out infinite;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+        background-size: 220% 100%;
+      }
+
+      .initial-chip {
+        height: 0.9rem;
+        width: 4.8rem;
+        border-radius: 999px;
+      }
+
+      .initial-app-main {
+        display: grid;
+        max-width: 1180px;
+        margin: 0 auto;
+        gap: 0.75rem;
+      }
+
+      .initial-hero,
+      .initial-side-card,
+      .initial-mobile-showcase {
+        border-radius: 1.1rem;
+        overflow: hidden;
+      }
+
+      .initial-hero {
+        min-height: 21rem;
+        padding: 1.1rem;
+        background:
+          radial-gradient(circle at 74% 26%, rgba(212, 175, 55, 0.16), transparent 13rem),
+          linear-gradient(145deg, rgba(5, 12, 28, 1), rgba(8, 18, 38, 1) 58%, rgba(7, 12, 22, 1));
+      }
+
+      .initial-line {
+        height: 0.9rem;
+        border-radius: 999px;
+      }
+
+      .initial-line.title {
+        margin-top: 3rem;
+        height: 2.1rem;
+        max-width: 22rem;
+      }
+
+      .initial-line.copy {
+        margin-top: 1rem;
+        max-width: 28rem;
+      }
+
+      .initial-line.short {
+        margin-top: 0.55rem;
+        max-width: 17rem;
+      }
+
+      .initial-side-card {
+        min-height: 18.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(145deg, #252f38 0%, #1a212a 52%, #111821 100%);
+      }
+
+      .initial-mobile-showcase {
+        min-height: 25.75rem;
+        padding: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.78);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 252, 245, 0.98) 56%, rgba(247, 250, 252, 1) 100%);
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
+      }
+
+      .initial-orb {
+        width: 11rem;
+        height: 11rem;
+        border-radius: 2rem;
+      }
+
+      @media (min-width: 768px) {
+        .initial-app-shell {
+          padding: 1.1rem 1.5rem 2.5rem;
+        }
+
+        .initial-nav {
+          display: flex;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .initial-app-main {
+          grid-template-columns: minmax(0, 1.8fr) minmax(18.25rem, 1fr);
+        }
+
+        .initial-hero,
+        .initial-side-card {
+          min-height: 25rem;
+        }
+
+        .initial-mobile-showcase {
+          display: none;
+        }
+      }
+
+      @keyframes initial-pulse {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-BI2noxGR.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-BFGqPeuW.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-DfzQaJlM.js">
+    <link rel="modulepreload" crossorigin href="/assets/data-vendor-Dj4BsAhh.js">
+    <link rel="modulepreload" crossorigin href="/assets/icon-vendor-BoGbq-zp.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-CiLo5tc1.css">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/inter-latin-700-normal-Yt3aPRUw.woff2" crossorigin="">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/jetbrains-mono-latin-500-normal-BWZEU5yA.woff2" crossorigin="">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/inter-latin-600-normal-LgqL8muc.woff2" crossorigin="">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/inter-latin-400-normal-C38fXH4l.woff2" crossorigin="">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/inter-latin-500-normal-Cerq10X2.woff2" crossorigin="">
+  </head>
+  <body class="bg-dark text-white">
+    <div id="root">
+      <div class="initial-app-shell" aria-hidden="true">
+        <header class="initial-app-header">
+          <div class="initial-logo">NJ Store</div>
+          <div class="initial-nav">
+            <div class="initial-chip"></div>
+            <div class="initial-chip"></div>
+            <div class="initial-chip"></div>
+          </div>
+        </header>
+        <main class="initial-app-main">
+          <section class="initial-hero">
+            <div class="initial-chip"></div>
+            <div class="initial-line title"></div>
+            <div class="initial-line copy"></div>
+            <div class="initial-line short"></div>
+          </section>
+          <aside class="initial-side-card">
+            <div class="initial-orb"></div>
+          </aside>
+          <aside class="initial-mobile-showcase">
+            <div class="initial-chip"></div>
+            <div class="initial-orb" style="margin: 4.5rem auto 3.5rem"></div>
+            <div class="initial-line copy"></div>
+            <div class="initial-line short"></div>
+          </aside>
+        </main>
+      </div>
+    </div>
+  </body>
+  </html>
