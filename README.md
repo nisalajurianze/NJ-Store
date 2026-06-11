@@ -243,7 +243,7 @@ NJ Store
 ### 1️⃣ Clone & Install
 
 ```bash
-git clone https://github.com/your-username/NJ-Store.git
+git clone https://github.com/nisalajurianze/NJ-Store.git
 cd NJ-Store/ecommerce
 npm install
 ```
