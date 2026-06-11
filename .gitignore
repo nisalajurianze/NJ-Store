@@ -1,0 +1,14 @@
+.tmp-njstore-docker-sim/
+.vercel/
+.railway/
+*-debug.png
+.tmp-*
+tmp-*.png
+shop-*.png
+.dev-server.log
+.logs/
+.runtime-logs/
+playwright-report/
+test-results/
+ecommerce/WEBSITE_AUDIT_REPORT.md
+ecommerce/audit-screenshots/

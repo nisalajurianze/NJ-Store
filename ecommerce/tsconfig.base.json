@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@njstore/types": ["packages/types/src/index.ts"],
+      "@njstore/types/*": ["packages/types/src/*"],
+      "@njstore/utils": ["packages/utils/src/index.ts"],
+      "@njstore/utils/*": ["packages/utils/src/*"],
+      "@njstore/ui": ["packages/ui/src/index.ts"],
+      "@njstore/ui/*": ["packages/ui/src/*"]
+    }
+  }
+}

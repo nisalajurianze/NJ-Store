@@ -1,0 +1,14 @@
+{
+  "name": "project-first-deploy-root",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "build": "npm --prefix ecommerce install --no-audit --no-fund && npm --prefix ecommerce run build",
+    "build:railway:server": "npm --prefix ecommerce install --no-audit --no-fund && npm --prefix ecommerce run build:railway:server",
+    "build:vercel:admin": "npm --prefix ecommerce install --no-audit --no-fund && npm --prefix ecommerce run build:vercel:admin",
+    "build:vercel:store": "npm --prefix ecommerce install --no-audit --no-fund && npm --prefix ecommerce run build:vercel:store"
+  }
+}

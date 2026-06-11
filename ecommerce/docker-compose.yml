@@ -1,0 +1,94 @@
+# ⚠️ DEVELOPMENT ONLY
+# This compose file exposes local developer services and keeps convenience
+# defaults. Do not deploy it as-is. Use docker-compose.prod.yml with real
+# secrets and authenticated data services for production-like environments.
+
+services:
+  mongo:
+    image: mongo:7.0
+    container_name: njstore-mongo
+    restart: unless-stopped
+    command: ["mongod", "--bind_ip_all", "--replSet", "rs0", "--auth", "--keyFile", "/data/configdb/dev-mongo-keyfile"]
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+    ports:
+      - "127.0.0.1:27017:27017"
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mongosh mongodb://$${MONGO_INITDB_ROOT_USERNAME}:$${MONGO_INITDB_ROOT_PASSWORD}@127.0.0.1:27017/admin?authSource=admin --quiet --eval \"quit(db.adminCommand({ ping: 1 }).ok === 1 ? 0 : 1)\""
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    volumes:
+      - mongo_data:/data/db
+      - mongo_config:/data/configdb
+  mongo-setup:
+    image: mongo:7.0
+    restart: "no"
+    depends_on:
+      mongo:
+        condition: service_healthy
+    environment:
+      MONGO_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+      MONGO_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        AUTH_URI="mongodb://$${MONGO_ROOT_USERNAME}:$${MONGO_ROOT_PASSWORD}@mongo:27017/admin?authSource=admin"
+        until mongosh "$$AUTH_URI" --quiet --eval "try { rs.status(); } catch (error) { rs.initiate({_id:'rs0',members:[{_id:0,host:'mongo:27017'}]}); }"; do
+          sleep 2
+        done
+        until mongosh "$$AUTH_URI" --quiet --eval "const hello = db.adminCommand({ hello: 1 }); quit(hello.isWritablePrimary || hello.ismaster ? 0 : 1)"; do
+          sleep 2
+        done
+  redis:
+    image: redis:7.2-alpine
+    container_name: njstore-redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD}"]
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    ports:
+      - "127.0.0.1:6379:6379"
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a \"$${REDIS_PASSWORD}\" ping | grep PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  server:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: njstore-server
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+      mongo-setup:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    environment:
+      NODE_ENV: development
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      LOG_FILE_ENABLED: ${LOG_FILE_ENABLED:-false}
+      PORT: 5000
+      CLIENT_URL: http://localhost:5173
+      ADMIN_URL: http://localhost:5174
+      MONGO_URI: mongodb://${MONGO_ROOT_USERNAME}:${MONGO_ROOT_PASSWORD}@mongo:27017/njstore?authSource=admin&replicaSet=rs0
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379
+      COOKIE_DOMAIN: localhost
+    ports:
+      - "5000:5000"
+
+volumes:
+  mongo_data:
+    name: ecommerce_mongo_data
+  mongo_config:
+    name: njstore_mongo_config

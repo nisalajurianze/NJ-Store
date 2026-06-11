@@ -1,0 +1,22 @@
+import { Router } from 'express';
+import { protect, restrictTo } from '../middleware/auth.js';
+import adminAnalyticsRoutes from './admin/adminAnalyticsRoutes.js';
+import adminCatalogRoutes from './admin/adminCatalogRoutes.js';
+import adminCouponRoutes from './admin/adminCouponRoutes.js';
+import adminNotificationRoutes from './admin/adminNotificationRoutes.js';
+import adminOrderRoutes from './admin/adminOrderRoutes.js';
+import adminSettingsRoutes from './admin/adminSettingsRoutes.js';
+import adminUserRoutes from './admin/adminUserRoutes.js';
+
+const router = Router();
+
+router.use(protect, restrictTo('admin', 'staff'));
+router.use(adminAnalyticsRoutes);
+router.use(adminCatalogRoutes);
+router.use(adminOrderRoutes);
+router.use(adminUserRoutes);
+router.use(adminCouponRoutes);
+router.use(adminSettingsRoutes);
+router.use(adminNotificationRoutes);
+
+export default router;

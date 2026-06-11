@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "baseUrl": ".",
+    "paths": {
+      "@njstore/types": [
+        "../types/dist/index.d.ts"
+      ],
+      "@njstore/types/*": [
+        "../types/dist/*"
+      ]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}

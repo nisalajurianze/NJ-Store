@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A1F44" />
+    <title>NJ Store Offline</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        font-family: Inter, system-ui, sans-serif;
+        background:
+          radial-gradient(circle at top, rgba(212, 175, 55, 0.14), transparent 28%),
+          linear-gradient(180deg, #07111f 0%, #0b1526 100%);
+        color: #f8fafc;
+      }
+
+      main {
+        width: min(100%, 540px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 28px;
+        padding: 32px;
+        background: rgba(7, 19, 37, 0.86);
+        box-shadow: 0 28px 64px rgba(0, 0, 0, 0.34);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(212, 175, 55, 0.14);
+        border: 1px solid rgba(212, 175, 55, 0.28);
+        color: #f3d479;
+        font-size: 11px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 18px 0 12px;
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        line-height: 1;
+      }
+
+      p {
+        margin: 0;
+        color: #cbd5e1;
+        line-height: 1.7;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .primary {
+        color: #07111f;
+        background: #f3d479;
+      }
+
+      .secondary {
+        color: #f8fafc;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="eyebrow">Offline Mode</div>
+      <h1>NJ Store is waiting for a connection</h1>
+      <p>
+        You can reopen recently visited pages and cached catalog data while offline. Reconnect to refresh pricing,
+        create quotations, and sync account activity.
+      </p>
+      <div class="actions">
+        <a class="primary" href="/">Back to home</a>
+        <a class="secondary" href="/shop">Open shop</a>
+      </div>
+    </main>
+  </body>
+</html>

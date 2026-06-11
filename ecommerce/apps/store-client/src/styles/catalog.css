@@ -1,0 +1,310 @@
+:root {
+  --catalog-panel-background:
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.14), transparent 26%),
+    radial-gradient(circle at 12% 14%, rgba(56, 189, 248, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(13, 18, 29, 0.97), rgba(7, 10, 18, 0.985));
+  --catalog-panel-shadow: none;
+  --catalog-close-border: rgba(255, 255, 255, 0.1);
+  --catalog-close-background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  --catalog-close-text: #f8fafc;
+  --catalog-close-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+  --catalog-close-hover-border: rgba(255, 255, 255, 0.18);
+  --catalog-close-hover-background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
+  --catalog-switch-border: rgba(255, 255, 255, 0.08);
+  --catalog-switch-background: rgba(255, 255, 255, 0.045);
+  --catalog-switch-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 18px 32px rgba(3, 7, 18, 0.18);
+  --catalog-switch-pill-border: rgba(255, 255, 255, 0.18);
+  --catalog-switch-pill-background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.08));
+  --catalog-switch-pill-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  --catalog-switch-button-text: rgba(226, 232, 240, 0.74);
+  --catalog-switch-button-active-text: #f8fafc;
+  --catalog-switch-count-background: rgba(255, 255, 255, 0.08);
+  --catalog-switch-count-text: rgba(226, 232, 240, 0.78);
+  --catalog-switch-count-active-background: rgba(255, 255, 255, 0.16);
+  --catalog-switch-count-active-text: #f8fafc;
+  --catalog-card-media-background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(148, 163, 184, 0.06));
+  --catalog-card-media-border: rgba(255, 255, 255, 0.1);
+  --catalog-card-media-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 10px 24px rgba(2, 6, 23, 0.14);
+  --catalog-brand-media-background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(238, 245, 252, 0.94));
+  --catalog-brand-media-border: rgba(255, 255, 255, 0.42);
+  --catalog-brand-media-hover-border: rgba(216, 181, 65, 0.46);
+  --catalog-brand-media-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 8px 18px rgba(2, 6, 23, 0.18);
+  --catalog-brand-media-hover-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.98),
+    0 10px 22px rgba(2, 6, 23, 0.2),
+    0 0 0 1px rgba(216, 181, 65, 0.1);
+  --catalog-brand-logo-shadow: none;
+  --catalog-brand-monogram-background: linear-gradient(135deg, rgba(15, 23, 42, 0.08), rgba(216, 181, 65, 0.14));
+  --catalog-brand-monogram-border: rgba(15, 23, 42, 0.08);
+  --catalog-brand-monogram-text: #0f172a;
+  --catalog-card-title-text: #f8fafc;
+  --catalog-card-title-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
+  --catalog-empty-border: rgba(255, 255, 255, 0.1);
+  --catalog-empty-background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+}
+
+html[data-theme='light'] {
+  --catalog-panel-background:
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.18), transparent 34%),
+    radial-gradient(circle at 12% 14%, rgba(56, 189, 248, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(252, 253, 255, 0.98), rgba(236, 242, 250, 0.98));
+  --catalog-panel-shadow: 0 24px 52px rgba(16, 34, 63, 0.12);
+  --catalog-close-border: rgba(16, 34, 63, 0.1);
+  --catalog-close-background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 247, 252, 0.92));
+  --catalog-close-text: var(--theme-text-primary);
+  --catalog-close-shadow: 0 12px 24px rgba(16, 34, 63, 0.1);
+  --catalog-close-hover-border: rgba(16, 34, 63, 0.16);
+  --catalog-close-hover-background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(247, 249, 253, 0.98));
+  --catalog-switch-border: rgba(16, 34, 63, 0.1);
+  --catalog-switch-background: rgba(255, 255, 255, 0.86);
+  --catalog-switch-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92), 0 16px 28px rgba(16, 34, 63, 0.08);
+  --catalog-switch-pill-border: rgba(16, 34, 63, 0.12);
+  --catalog-switch-pill-background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 248, 252, 0.96));
+  --catalog-switch-pill-shadow: 0 10px 24px rgba(16, 34, 63, 0.12);
+  --catalog-switch-button-text: var(--theme-text-secondary);
+  --catalog-switch-button-active-text: var(--theme-text-primary);
+  --catalog-switch-count-background: rgba(16, 34, 63, 0.08);
+  --catalog-switch-count-text: var(--theme-text-secondary);
+  --catalog-switch-count-active-background: rgba(16, 34, 63, 0.12);
+  --catalog-switch-count-active-text: var(--theme-text-primary);
+  --catalog-card-media-background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(243, 247, 252, 0.9));
+  --catalog-card-media-border: rgba(16, 34, 63, 0.08);
+  --catalog-card-media-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 8px 18px rgba(16, 34, 63, 0.06);
+  --catalog-brand-media-background: linear-gradient(180deg, #ffffff, rgba(247, 250, 252, 0.96));
+  --catalog-brand-media-border: rgba(16, 34, 63, 0.08);
+  --catalog-brand-media-hover-border: rgba(29, 79, 155, 0.22);
+  --catalog-brand-media-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 6px 14px rgba(16, 34, 63, 0.06);
+  --catalog-brand-media-hover-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 8px 18px rgba(16, 34, 63, 0.08),
+    0 0 0 1px rgba(29, 79, 155, 0.06);
+  --catalog-brand-logo-shadow: none;
+  --catalog-brand-monogram-background: linear-gradient(135deg, rgba(29, 79, 155, 0.08), rgba(216, 181, 65, 0.12));
+  --catalog-brand-monogram-border: rgba(16, 34, 63, 0.08);
+  --catalog-brand-monogram-text: var(--theme-text-primary);
+  --catalog-card-title-text: var(--theme-text-primary);
+  --catalog-card-title-shadow: none;
+  --catalog-empty-border: rgba(16, 34, 63, 0.1);
+  --catalog-empty-background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(244, 247, 251, 0.84));
+}
+
+.catalog-panel-shell {
+  background: var(--catalog-panel-background);
+  box-shadow: var(--catalog-panel-shadow);
+  contain: layout paint style;
+}
+
+.catalog-panel-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 4% 0%, rgba(212, 175, 55, 0.12), transparent 24%),
+    radial-gradient(circle at 96% 18%, rgba(56, 189, 248, 0.1), transparent 24%),
+    radial-gradient(circle at 78% 100%, rgba(99, 102, 241, 0.08), transparent 26%);
+  opacity: 0.9;
+}
+
+.catalog-close-button {
+  border: 1px solid var(--catalog-close-border);
+  background: var(--catalog-close-background);
+  color: var(--catalog-close-text);
+  box-shadow: var(--catalog-close-shadow);
+}
+
+.catalog-close-button:hover {
+  border-color: var(--catalog-close-hover-border);
+  background: var(--catalog-close-hover-background);
+}
+
+.catalog-switch {
+  border: 1px solid var(--catalog-switch-border);
+  background: var(--catalog-switch-background);
+  box-shadow: var(--catalog-switch-shadow);
+}
+
+.catalog-switch-pill {
+  border: 1px solid var(--catalog-switch-pill-border);
+  background: var(--catalog-switch-pill-background);
+  box-shadow: var(--catalog-switch-pill-shadow);
+}
+
+.catalog-switch-button {
+  color: var(--catalog-switch-button-text);
+}
+
+.catalog-switch-button:hover,
+.catalog-switch-button-active {
+  color: var(--catalog-switch-button-active-text);
+}
+
+.catalog-switch-count {
+  background: var(--catalog-switch-count-background);
+  color: var(--catalog-switch-count-text);
+}
+
+.catalog-switch-count-active {
+  background: var(--catalog-switch-count-active-background);
+  color: var(--catalog-switch-count-active-text);
+}
+
+.catalog-card {
+  backdrop-filter: none;
+  background: transparent;
+  border: 1px solid transparent;
+  contain: layout paint style;
+  box-shadow: none;
+  transform: translateZ(0);
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+
+.catalog-card:hover,
+a:focus-visible .catalog-card {
+  transform: translate3d(0, -3px, 0) scale(1.01);
+}
+
+.catalog-card:active {
+  transform: translate3d(0, -1px, 0) scale(0.99);
+}
+
+.catalog-card-media {
+  background: var(--catalog-card-media-background);
+  border: 1px solid var(--catalog-card-media-border);
+  contain: layout paint style;
+  box-shadow: var(--catalog-card-media-shadow);
+}
+
+.catalog-brand-media {
+  position: relative;
+  isolation: isolate;
+  padding: 0.65rem 0.8rem;
+  background: var(--catalog-brand-media-background);
+  border-color: var(--catalog-brand-media-border);
+  box-shadow: var(--catalog-brand-media-shadow);
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease;
+}
+
+.catalog-brand-media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 44%),
+    linear-gradient(180deg, rgba(15, 23, 42, 0), rgba(15, 23, 42, 0.035));
+}
+
+.catalog-brand-card:hover .catalog-brand-media,
+a:focus-visible .catalog-brand-media {
+  border-color: var(--catalog-brand-media-hover-border);
+  box-shadow: var(--catalog-brand-media-hover-shadow);
+  transform: translate3d(0, -1px, 0);
+}
+
+.catalog-brand-media .catalog-brand-logo {
+  position: relative;
+  z-index: 1;
+  max-width: 90%;
+  max-height: min(3.2rem, 64%);
+  object-position: center;
+  filter: var(--catalog-brand-logo-shadow);
+  transform: translateZ(0) scale(0.98);
+  transition: transform 0.24s ease;
+}
+
+.catalog-brand-card:hover .catalog-brand-logo,
+a:focus-visible .catalog-brand-logo {
+  transform: translateZ(0) scale(1.04);
+}
+
+.catalog-brand-monogram {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  min-height: 2.45rem;
+  min-width: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--catalog-brand-monogram-border);
+  border-radius: 0.85rem;
+  background: var(--catalog-brand-monogram-background);
+  padding: 0.35rem 0.65rem;
+  color: var(--catalog-brand-monogram-text);
+  text-shadow: none;
+}
+
+.catalog-card-title {
+  color: var(--catalog-card-title-text);
+  letter-spacing: 0;
+  text-shadow: var(--catalog-card-title-shadow);
+}
+
+.catalog-empty-state {
+  border: 1px solid var(--catalog-empty-border);
+  background: var(--catalog-empty-background);
+}
+
+@media (min-width: 640px) {
+  .catalog-brand-media {
+    padding: 0.75rem 0.9rem;
+  }
+
+  .catalog-brand-media .catalog-brand-logo {
+    max-width: 92%;
+    max-height: min(3.7rem, 66%);
+  }
+}
+
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+  .catalog-panel-ambient {
+    opacity: 0.62;
+  }
+
+  .catalog-switch {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 10px 20px rgba(3, 7, 18, 0.14);
+  }
+
+  .catalog-switch-pill {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  }
+
+  .catalog-card {
+    transition-duration: 140ms;
+    will-change: auto;
+  }
+
+  .catalog-card:hover,
+  a:focus-visible .catalog-card {
+    transform: translate3d(0, -1px, 0);
+  }
+
+  .catalog-card-media,
+  .catalog-brand-media {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 6px 14px rgba(2, 6, 23, 0.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .catalog-card,
+  .catalog-brand-media,
+  .catalog-brand-media .catalog-brand-logo {
+    transition: none;
+  }
+
+  .catalog-card,
+  .catalog-card:hover,
+  .catalog-card:active,
+  a:focus-visible .catalog-card,
+  .catalog-brand-card:hover .catalog-brand-media,
+  a:focus-visible .catalog-brand-media {
+    transform: none;
+  }
+}

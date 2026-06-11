@@ -1,0 +1,61 @@
+# Production-like override for `docker compose -f docker-compose.yml -f docker-compose.prod.yml up`.
+# Provide every variable from a private environment file or your deployment
+# platform secret store. Never commit real values.
+# MONGO_KEYFILE_PATH must point to a private MongoDB replica-set keyfile.
+
+services:
+  mongo:
+    command: ["mongod", "--bind_ip_all", "--replSet", "rs0", "--auth", "--keyFile", "/data/keyfile"]
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME:?Set MONGO_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:?Set MONGO_ROOT_PASSWORD}
+    ports: []
+    volumes:
+      - ${MONGO_KEYFILE_PATH:?Set MONGO_KEYFILE_PATH}:/data/keyfile:ro
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mongosh mongodb://$${MONGO_INITDB_ROOT_USERNAME}:$${MONGO_INITDB_ROOT_PASSWORD}@127.0.0.1:27017/admin --quiet --eval \"quit(db.adminCommand({ ping: 1 }).ok === 1 ? 0 : 1)\""
+        ]
+
+  mongo-setup:
+    environment:
+      MONGO_ROOT_USERNAME: ${MONGO_ROOT_USERNAME:?Set MONGO_ROOT_USERNAME}
+      MONGO_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:?Set MONGO_ROOT_PASSWORD}
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        AUTH_URI="mongodb://$${MONGO_ROOT_USERNAME}:$${MONGO_ROOT_PASSWORD}@mongo:27017/admin"
+        until mongosh "$$AUTH_URI" --quiet --eval "try { rs.status(); } catch (error) { rs.initiate({_id:'rs0',members:[{_id:0,host:'mongo:27017'}]}); }"; do
+          sleep 2
+        done
+        until mongosh "$$AUTH_URI" --quiet --eval "const hello = db.adminCommand({ hello: 1 }); quit(hello.isWritablePrimary || hello.ismaster ? 0 : 1)"; do
+          sleep 2
+        done
+
+  redis:
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD:?Set REDIS_PASSWORD}"]
+    ports: []
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a \"$${REDIS_PASSWORD}\" ping | grep PONG"]
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?Set REDIS_PASSWORD}
+
+  server:
+    environment:
+      NODE_ENV: production
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      LOG_FILE_ENABLED: ${LOG_FILE_ENABLED:-true}
+      LOG_FILE_DIR: ${LOG_FILE_DIR:-.logs}
+      LOG_FILE_MAX_SIZE: ${LOG_FILE_MAX_SIZE:-10m}
+      LOG_FILE_MAX_FILES: ${LOG_FILE_MAX_FILES:-5}
+      CLIENT_URL: ${CLIENT_URL:?Set CLIENT_URL}
+      ADMIN_URL: ${ADMIN_URL:?Set ADMIN_URL}
+      MONGO_URI: ${MONGO_URI:?Set MONGO_URI}
+      REDIS_URL: ${REDIS_URL:?Set REDIS_URL}
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:?Set JWT_ACCESS_SECRET}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:?Set JWT_REFRESH_SECRET}
+      JWT_EMAIL_SECRET: ${JWT_EMAIL_SECRET:?Set JWT_EMAIL_SECRET}
+      COOKIE_DOMAIN: ${COOKIE_DOMAIN:?Set COOKIE_DOMAIN}

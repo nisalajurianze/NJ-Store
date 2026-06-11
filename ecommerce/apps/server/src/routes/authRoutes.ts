@@ -1,0 +1,75 @@
+import { Router } from 'express';
+import {
+  addAddress,
+  csrf,
+  deleteAddress,
+  forgotPassword,
+  getMe,
+  getLoyaltyHistory,
+  getSessions,
+  googleLogin,
+  issueSocketTicket,
+  login,
+  logout,
+  logoutAll,
+  refresh,
+  register,
+  resendVerification,
+  resetPassword,
+  setDefaultAddress,
+  updateAddress,
+  updateAvatar,
+  updatePassword,
+  updateProfile,
+  verifyEmail
+} from '../controllers/authController.js';
+import { protect } from '../middleware/auth.js';
+import {
+  authRateLimiter,
+  forgotPasswordRateLimiter,
+  passwordResetRateLimiter,
+  resendEmailRateLimiter,
+  socketTicketRateLimiter,
+  uploadRateLimiter
+} from '../middleware/rateLimiter.js';
+import { uploadAvatar } from '../middleware/upload.js';
+import { validateBody, validateParams } from '../middleware/validate.js';
+import {
+  addressIdParamsSchema,
+  addressPayloadSchema,
+  forgotPasswordSchema,
+  googleLoginSchema,
+  loginSchema,
+  passwordUpdateSchema,
+  profileUpdateSchema,
+  registerSchema,
+  resetPasswordSchema,
+  tokenSchema
+} from '../validators/authValidators.js';
+
+const router = Router();
+
+router.get('/csrf', csrf);
+router.post('/register', authRateLimiter, validateBody(registerSchema), register);
+router.post('/login', authRateLimiter, validateBody(loginSchema), login);
+router.post('/google', authRateLimiter, validateBody(googleLoginSchema), googleLogin);
+router.post('/refresh', refresh);
+router.post('/logout', logout);
+router.post('/logout-all', protect, logoutAll);
+router.post('/verify-email', validateBody(tokenSchema), verifyEmail);
+router.post('/resend-verification', protect, resendEmailRateLimiter, resendVerification);
+router.post('/forgot-password', forgotPasswordRateLimiter, validateBody(forgotPasswordSchema), forgotPassword);
+router.post('/reset-password', passwordResetRateLimiter, validateBody(resetPasswordSchema), resetPassword);
+router.get('/me', protect, getMe);
+router.get('/sessions', protect, getSessions);
+router.post('/socket-ticket', protect, socketTicketRateLimiter, issueSocketTicket);
+router.get('/loyalty', protect, getLoyaltyHistory);
+router.patch('/profile', protect, validateBody(profileUpdateSchema), updateProfile);
+router.patch('/password', protect, validateBody(passwordUpdateSchema), updatePassword);
+router.post('/avatar', protect, uploadRateLimiter, uploadAvatar, updateAvatar);
+router.post('/addresses', protect, validateBody(addressPayloadSchema), addAddress);
+router.patch('/addresses/:addressId', protect, validateParams(addressIdParamsSchema), validateBody(addressPayloadSchema), updateAddress);
+router.delete('/addresses/:addressId', protect, validateParams(addressIdParamsSchema), deleteAddress);
+router.patch('/addresses/:addressId/default', protect, validateParams(addressIdParamsSchema), setDefaultAddress);
+
+export default router;

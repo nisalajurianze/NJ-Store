@@ -1,0 +1,16 @@
+:root {
+  --color-navy-rgb: 10 31 68;
+  --color-navy-light-rgb: 26 58 110;
+  --color-dark-rgb: 26 26 26;
+  --color-dark-light-rgb: 42 42 42;
+  --color-gold-rgb: 212 175 55;
+  --color-gold-light-rgb: 240 208 96;
+  --color-gold-dark-rgb: 184 151 31;
+  --navy: rgb(var(--color-navy-rgb));
+  --navy-light: rgb(var(--color-navy-light-rgb));
+  --dark: rgb(var(--color-dark-rgb));
+  --dark-light: rgb(var(--color-dark-light-rgb));
+  --gold: rgb(var(--color-gold-rgb));
+  --gold-light: rgb(var(--color-gold-light-rgb));
+  --gold-dark: rgb(var(--color-gold-dark-rgb));
+}

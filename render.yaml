@@ -1,0 +1,103 @@
+# Render Blueprint for the NJ Store API.
+# This manages the backend service only.
+# The storefront and admin frontends are expected to stay on Vercel.
+#
+# During the initial Blueprint creation flow, Render will prompt for all
+# env vars marked with `sync: false`.
+
+previews:
+  generation: off
+
+services:
+  - name: njstore-redis
+    type: keyvalue
+    plan: starter
+    region: singapore
+    ipAllowList: []
+
+  - name: njstore-api
+    type: web
+    runtime: node
+    plan: starter
+    region: singapore
+    rootDir: ecommerce
+    buildCommand: npm install && npm run build --workspace @njstore/types && npm run build --workspace @njstore/utils && npm run build:app --workspace @njstore/server
+    startCommand: npm run start --workspace @njstore/server
+    healthCheckPath: /api/v1/health
+    autoDeployTrigger: commit
+    buildFilter:
+      paths:
+        - ecommerce/apps/server/**
+        - ecommerce/packages/**
+        - ecommerce/package.json
+        - ecommerce/package-lock.json
+        - ecommerce/tsconfig.base.json
+    # Uncomment and replace with your real API domain after DNS is ready.
+    # domains:
+    #   - api.yourdomain.com
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: APP_NAME
+        value: NJ Store
+      - key: LOG_LEVEL
+        value: info
+      - key: LOG_FILE_ENABLED
+        value: true
+      - key: LOG_FILE_DIR
+        value: .logs
+      - key: LOG_FILE_MAX_SIZE
+        value: 10m
+      - key: LOG_FILE_MAX_FILES
+        value: 5
+      - key: JWT_ACCESS_EXPIRES
+        value: 15m
+      - key: JWT_REFRESH_EXPIRES
+        value: 7d
+      - key: FREE_SHIPPING_THRESHOLD
+        value: 15000
+      - key: LOW_STOCK_THRESHOLD
+        value: 5
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: JWT_EMAIL_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        sync: false
+      - key: ADMIN_URL
+        sync: false
+      - key: COOKIE_DOMAIN
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: SMTP_HOST
+        value: smtp.resend.com
+      - key: SMTP_PORT
+        value: 465
+      - key: SMTP_USER
+        value: resend
+      - key: SMTP_PASS
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: EMAIL_FROM_NAME
+        value: NJ Store
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: REDIS_URL
+        fromService:
+          type: keyvalue
+          name: njstore-redis
+          property: connectionString

@@ -1,0 +1,25 @@
+import { Router } from 'express';
+import {
+  getHomeBanner,
+  getHomeBrands,
+  getHomeFeed,
+  getHomeFeatured,
+  getHomeFlashDeals,
+  getHomeLatest,
+  getHomeRecentlyViewed,
+  getHomeWantedProducts
+} from '../controllers/productController.js';
+import { optionalAuth } from '../middleware/auth.js';
+
+const router = Router();
+
+router.get('/', optionalAuth, getHomeFeed);
+router.get('/banner', getHomeBanner);
+router.get('/featured', getHomeFeatured);
+router.get('/latest', getHomeLatest);
+router.get('/flash-deals', getHomeFlashDeals);
+router.get('/wanted-products', getHomeWantedProducts);
+router.get('/brands', getHomeBrands);
+router.get('/recently-viewed', optionalAuth, getHomeRecentlyViewed);
+
+export default router;

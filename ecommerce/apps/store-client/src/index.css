@@ -1,0 +1,361 @@
+@import '../../../packages/utils/src/designTokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --white: #FFFFFF;
+  --gray-400: #9ca3af;
+  --color-gold-rgb: 216 181 65;
+  --color-gold-light-rgb: 245 213 105;
+  --color-gold-dark-rgb: 178 137 27;
+  --theme-text-primary: #f7f9fd;
+  --theme-text-secondary: #d9e1ef;
+  --theme-text-muted: #94a3b8;
+  --theme-on-dark-primary: #f8fafc;
+  --theme-on-dark-secondary: rgba(226, 232, 240, 0.82);
+  --theme-on-dark-muted: rgba(203, 213, 225, 0.66);
+  --theme-accent: #d8b541;
+  --theme-accent-soft: rgba(216, 181, 65, 0.14);
+  --theme-surface: rgba(13, 20, 33, 0.72);
+  --theme-surface-strong: rgba(19, 29, 46, 0.88);
+  --theme-surface-soft: rgba(255, 255, 255, 0.045);
+  --theme-border: rgba(176, 194, 222, 0.13);
+  --theme-border-strong: rgba(205, 216, 235, 0.2);
+  --theme-header: rgba(4, 9, 19, 0.88);
+  --theme-header-strong: rgba(5, 11, 22, 0.95);
+  --theme-header-border: rgba(178, 197, 226, 0.12);
+  --theme-header-shadow: 0 20px 42px rgba(0, 0, 0, 0.32);
+  --theme-footer: rgba(3, 9, 19, 0.82);
+  --theme-footer-card-background:
+    radial-gradient(circle at top left, rgba(216, 181, 65, 0.14), transparent 30%),
+    radial-gradient(circle at 82% 0%, rgba(61, 161, 154, 0.1), transparent 32%),
+    linear-gradient(160deg, rgba(7, 13, 24, 0.96), rgba(8, 18, 35, 0.9));
+  --theme-footer-card-border: rgba(190, 206, 232, 0.12);
+  --theme-footer-card-shadow: 0 22px 54px rgba(0, 0, 0, 0.28);
+  --theme-floating: rgba(4, 9, 19, 0.98);
+  --theme-input: rgba(8, 15, 27, 0.94);
+  --app-input-surface: rgba(11, 16, 27, 0.86);
+  --app-input-focus-surface: rgba(11, 16, 27, 0.92);
+  --theme-shadow: 0 20px 46px rgba(0, 0, 0, 0.36);
+  --theme-background:
+    radial-gradient(circle at 8% -10%, rgba(36, 82, 146, 0.34), transparent 34%),
+    radial-gradient(circle at 90% 0%, rgba(216, 181, 65, 0.09), transparent 30%),
+    radial-gradient(circle at 48% 108%, rgba(20, 78, 92, 0.18), transparent 40%),
+    linear-gradient(165deg, #030712 0%, #07101e 48%, #03060d 100%);
+  --theme-hero-surface:
+    radial-gradient(circle at 14% 6%, rgba(35, 75, 134, 0.36), transparent 30%),
+    radial-gradient(circle at 86% 8%, rgba(216, 181, 65, 0.1), transparent 28%),
+    linear-gradient(160deg, #040914 0%, #07162a 58%, #03060d 100%);
+  --theme-promo-surface:
+    radial-gradient(circle at 92% 0%, rgba(216, 181, 65, 0.13), transparent 30%),
+    linear-gradient(90deg, rgba(7, 17, 34, 0.92), rgba(4, 8, 18, 0.97));
+  --app-modal-surface: rgba(3, 5, 11, 0.98);
+  --app-modal-header-surface: rgba(255, 255, 255, 0.02);
+  --app-modal-border: rgba(255, 255, 255, 0.1);
+  --app-modal-text: #f8fafc;
+  --app-modal-muted: rgba(226, 232, 240, 0.74);
+  --app-modal-subtle: rgba(255, 255, 255, 0.05);
+  --app-modal-preview-surface: rgba(0, 0, 0, 0.2);
+  --app-modal-control-hover: rgba(255, 255, 255, 0.07);
+  --app-modal-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+  --app-modal-morph-initial-surface: rgba(255, 255, 255, 0.08);
+  --app-modal-morph-initial-border: rgba(255, 255, 255, 0.16);
+  --app-modal-morph-initial-shadow: 0 12px 28px rgba(3, 5, 11, 0.16);
+  --app-stepper-idle-surface: rgba(255, 255, 255, 0.92);
+  --app-stepper-idle-border: rgba(255, 255, 255, 0.2);
+  --app-stepper-active-label: #f8fafc;
+  --app-stepper-muted: #6b7280;
+  --app-stepper-line: rgba(255, 255, 255, 0.1);
+  --checkout-warning-text: rgba(253, 230, 138, 0.88);
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+html {
+  width: 100%;
+  overflow-x: clip;
+  touch-action: pan-x pan-y;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html[data-theme='light'] {
+  color-scheme: light;
+  --theme-text-primary: #10213a;
+  --theme-text-secondary: #334a67;
+  --theme-text-muted: #68778d;
+  --theme-accent-soft: rgba(216, 181, 65, 0.16);
+  --theme-surface: rgba(255, 255, 255, 0.76);
+  --theme-surface-strong: rgba(255, 255, 255, 0.96);
+  --theme-surface-soft: rgba(246, 250, 251, 0.86);
+  --theme-border: rgba(28, 54, 88, 0.12);
+  --theme-border-strong: rgba(28, 54, 88, 0.18);
+  --theme-header: rgba(249, 252, 253, 0.88);
+  --theme-header-strong: rgba(252, 254, 255, 0.94);
+  --theme-header-border: rgba(28, 54, 88, 0.1);
+  --theme-header-shadow: 0 18px 40px rgba(34, 58, 88, 0.13);
+  --theme-footer: rgba(244, 249, 250, 0.8);
+  --theme-footer-card-background:
+    radial-gradient(circle at top left, rgba(216, 181, 65, 0.12), transparent 30%),
+    radial-gradient(circle at 86% 0%, rgba(82, 150, 176, 0.1), transparent 34%),
+    radial-gradient(circle at 50% 120%, rgba(93, 146, 210, 0.08), transparent 36%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(242, 249, 251, 0.95), rgba(249, 245, 236, 0.93));
+  --theme-footer-card-border: rgba(16, 34, 63, 0.1);
+  --theme-footer-card-shadow: 0 20px 46px rgba(34, 58, 88, 0.12);
+  --theme-floating: rgba(255, 255, 255, 0.97);
+  --theme-input: rgba(255, 255, 255, 0.95);
+  --app-input-surface: rgba(255, 255, 255, 0.95);
+  --app-input-focus-surface: rgba(255, 255, 255, 0.98);
+  --theme-shadow: 0 18px 42px rgba(35, 61, 91, 0.13);
+  --theme-background:
+    radial-gradient(circle at 8% -8%, rgba(64, 176, 170, 0.16), transparent 32%),
+    radial-gradient(circle at 88% 0%, rgba(216, 181, 65, 0.13), transparent 30%),
+    radial-gradient(circle at 72% 104%, rgba(90, 139, 202, 0.1), transparent 34%),
+    linear-gradient(165deg, #fbfdff 0%, #eef8f7 52%, #f8f4ea 100%);
+  --theme-hero-surface:
+    radial-gradient(circle at 10% 0%, rgba(55, 169, 161, 0.17), transparent 30%),
+    radial-gradient(circle at 86% 4%, rgba(216, 181, 65, 0.18), transparent 28%),
+    radial-gradient(circle at 50% 100%, rgba(83, 136, 202, 0.12), transparent 34%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(239, 250, 249, 0.96) 58%, rgba(250, 247, 236, 0.94));
+  --theme-promo-surface:
+    radial-gradient(circle at 88% 0%, rgba(216, 181, 65, 0.18), transparent 30%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(238, 250, 249, 0.93), rgba(250, 246, 235, 0.92));
+  --app-modal-surface: rgba(255, 255, 255, 0.98);
+  --app-modal-header-surface: rgba(246, 250, 253, 0.9);
+  --app-modal-border: rgba(28, 54, 88, 0.12);
+  --app-modal-text: var(--theme-text-primary);
+  --app-modal-muted: var(--theme-text-muted);
+  --app-modal-subtle: rgba(28, 54, 88, 0.055);
+  --app-modal-preview-surface: rgba(241, 246, 250, 0.9);
+  --app-modal-control-hover: rgba(28, 54, 88, 0.07);
+  --app-modal-shadow: 0 26px 60px rgba(35, 61, 91, 0.18);
+  --app-modal-morph-initial-surface: rgba(255, 255, 255, 0.72);
+  --app-modal-morph-initial-border: rgba(28, 54, 88, 0.12);
+  --app-modal-morph-initial-shadow: 0 12px 28px rgba(35, 61, 91, 0.12);
+  --app-stepper-idle-surface: rgba(255, 255, 255, 0.96);
+  --app-stepper-idle-border: rgba(16, 34, 63, 0.18);
+  --app-stepper-active-label: var(--theme-text-primary);
+  --app-stepper-muted: #52637a;
+  --app-stepper-line: rgba(28, 54, 88, 0.12);
+  --checkout-warning-text: #8a650c;
+}
+
+body {
+  @apply font-body antialiased;
+  background-image: var(--theme-background);
+  color: var(--theme-text-primary);
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
+  line-height: 1.5;
+  transition:
+    background-color 0.25s ease,
+    background-image 0.25s ease,
+    color 0.25s ease;
+}
+
+:where(header, main, footer, section, article, aside, nav, form, div) {
+  min-width: 0;
+}
+
+:where(img, picture, video, canvas, svg) {
+  max-width: 100%;
+}
+
+:where(input, select, textarea, button) {
+  max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  :where(input, select, textarea):not([type='checkbox']):not([type='radio']) {
+    font-size: 16px;
+  }
+
+  .product-card-shell {
+    contain: layout paint style;
+    transition-duration: 180ms;
+  }
+
+  .product-card-media-surface,
+  .product-card-summary-surface {
+    contain: layout paint style;
+  }
+
+  .product-card-media-shadow,
+  .product-card-media-gold-glow {
+    display: none;
+  }
+
+  .product-card-media-wash,
+  .product-card-media-active-wash {
+    opacity: 0.56;
+  }
+
+  .product-card-brand-logo {
+    filter: none;
+  }
+
+  .product-card-dark-surface,
+  .product-card-option-scene,
+  .product-card-option-header {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  html[data-product-sticky-cart='visible'] .floating-contact-fab {
+    bottom: calc(8.25rem + env(safe-area-inset-bottom));
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-md;
+    border: 1px solid var(--theme-border);
+    background: var(--theme-surface);
+    box-shadow: var(--theme-shadow);
+  }
+
+  .page-shell {
+    @apply mx-auto w-full max-w-none px-3 sm:px-5 lg:px-6 xl:px-8 2xl:px-10;
+  }
+
+  .page-nav-gap {
+    @apply pt-3 sm:pt-4 lg:pt-4;
+  }
+
+  .theme-header-surface {
+    background-color: var(--theme-header);
+  }
+
+  .theme-footer-surface {
+    background-color: var(--theme-footer);
+  }
+
+  .nav-search-form {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(5, 8, 19, 0.92);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .nav-search-form:focus-within {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: #070b15;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  }
+
+  .nav-search-icon {
+    background: rgba(255, 255, 255, 0.045);
+    color: var(--theme-text-muted);
+  }
+
+  .nav-search-form:focus-within .nav-search-icon {
+    color: #ffffff;
+  }
+
+  .nav-search-input {
+    color: #ffffff;
+  }
+
+  .nav-search-input::placeholder {
+    color: #6b7280;
+  }
+
+  .nav-search-clear {
+    color: var(--theme-text-muted);
+  }
+
+  .nav-search-clear:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+  }
+
+  .nav-search-submit {
+    background: #ffffff;
+    color: #111827;
+  }
+
+  .nav-search-submit:hover {
+    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.12);
+  }
+
+  .nav-search-panel {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #04060d;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.48);
+    opacity: 1;
+  }
+
+  html[data-theme='light'] .nav-search-form {
+    border-color: rgba(16, 34, 63, 0.14);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 248, 255, 0.94));
+    box-shadow:
+      0 16px 34px rgba(16, 34, 63, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  }
+
+  html[data-theme='light'] .nav-search-form:focus-within {
+    border-color: rgba(212, 175, 55, 0.55);
+    background: #ffffff;
+    box-shadow:
+      0 18px 38px rgba(16, 34, 63, 0.16),
+      0 0 0 3px rgba(212, 175, 55, 0.14);
+  }
+
+  html[data-theme='light'] .nav-search-icon {
+    background: rgba(16, 34, 63, 0.06);
+    color: #526786;
+  }
+
+  html[data-theme='light'] .nav-search-form:focus-within .nav-search-icon {
+    color: #10223f;
+  }
+
+  html[data-theme='light'] .nav-search-input {
+    color: #10223f;
+  }
+
+  html[data-theme='light'] .nav-search-input::placeholder {
+    color: #7c8aa1;
+  }
+
+  html[data-theme='light'] .nav-search-clear {
+    color: #637694;
+  }
+
+  html[data-theme='light'] .nav-search-clear:hover {
+    background: rgba(16, 34, 63, 0.07);
+    color: #10223f;
+  }
+
+  html[data-theme='light'] .nav-search-submit {
+    background: #10223f;
+    color: #ffffff;
+  }
+
+  html[data-theme='light'] .nav-search-submit:hover {
+    box-shadow: 0 12px 24px rgba(16, 34, 63, 0.18);
+  }
+
+  html[data-theme='light'] .nav-search-panel {
+    border-color: rgba(16, 34, 63, 0.12);
+    background: #ffffff;
+    box-shadow: 0 24px 54px rgba(16, 34, 63, 0.18);
+  }
+}
+
+#root {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    padding-inline: clamp(0.65rem, 3.2vw, 0.9rem);
+  }
+}

@@ -1,0 +1,20 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+watchPatterns = [
+  "/Dockerfile",
+  "/railway.toml",
+  "/.dockerignore",
+  "/ecommerce/package.json",
+  "/ecommerce/package-lock.json",
+  "/ecommerce/tsconfig.base.json",
+  "/ecommerce/apps/server/**",
+  "/ecommerce/packages/types/**",
+  "/ecommerce/packages/utils/**",
+]
+
+[deploy]
+healthcheckPath = "/api/v1/health"
+healthcheckTimeout = 120
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10

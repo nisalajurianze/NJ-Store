@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 72" role="img" aria-labelledby="samsungTitle">
+  <title id="samsungTitle">Samsung</title>
+  <rect width="180" height="72" rx="20" fill="#072d6b"/>
+  <text x="90" y="44" text-anchor="middle" fill="#f8fafc" font-size="24" font-family="Arial, Helvetica, sans-serif" font-weight="700">SAMSUNG</text>
+</svg>

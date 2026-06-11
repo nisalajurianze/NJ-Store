@@ -1,0 +1,34 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "types": [
+      "node"
+    ],
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "baseUrl": ".",
+    "paths": {
+      "@njstore/types": [
+        "../../packages/types/dist/index.d.ts"
+      ],
+      "@njstore/types/*": [
+        "../../packages/types/dist/*"
+      ],
+      "@njstore/utils": [
+        "../../packages/utils/dist/index.d.ts"
+      ],
+      "@njstore/utils/*": [
+        "../../packages/utils/dist/*"
+      ]
+    },
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts"
+  ]
+}
