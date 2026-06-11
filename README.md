@@ -15,6 +15,8 @@
 [![Socket.IO](https://img.shields.io/badge/Socket.IO-4-010101?style=for-the-badge&logo=socket.io&logoColor=white)](https://socket.io/)
 [![Playwright](https://img.shields.io/badge/Playwright-E2E-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)](https://playwright.dev/)
 
+🚀 **[Live Customer Storefront](https://njstore-project.vercel.app)** &nbsp; | &nbsp; ⚙️ **[Live Admin Dashboard](https://project-first-admin.vercel.app)**
+
 <br/>
 
 **NJ Store** is a production-ready, full-stack e-commerce platform built as a TypeScript monorepo.  
@@ -24,6 +26,7 @@ multi-language support, and seamless deployment pipelines.
 
 <br/>
 
+[Live Demo](#-live-demo) •
 [Getting Started](#-getting-started) •
 [Features](#-features) •
 [Tech Stack](#-tech-stack) •
@@ -34,6 +37,23 @@ multi-language support, and seamless deployment pipelines.
 </div>
 
 <br/>
+
+---
+
+## 🌐 Live Demo
+
+Experience the platform live:
+
+- **🏪 Customer Storefront:** [https://njstore-project.vercel.app](https://njstore-project.vercel.app)
+- **🛠️ Admin Dashboard:** [https://project-first-admin.vercel.app](https://project-first-admin.vercel.app)
+
+### 🔑 Demo Credentials
+
+To explore the admin panel and shopper features, you can log in using the pre-configured administrator credentials:
+
+| Role | Email Address | Password |
+|---|---|---|
+| **System Administrator** | `admin@njstore.com` | `Admin@123` |
 
 ---
 
@@ -287,7 +307,7 @@ npm run seed
 
 | Data | Details |
 |---|---|
-| 👤 Admin | `admin@njstore.com` (password from `SEED_ADMIN_PASSWORD` or printed at seed time) |
+| 👤 Admin | `admin@njstore.com` (password: `Admin@123` or custom from `SEED_ADMIN_PASSWORD`) |
 | 👥 Customers | 5 demo customers (shared password from `SEED_CUSTOMER_PASSWORD` or printed) |
 | 📂 Categories | 8 electronics categories |
 | 📦 Products | 20 electronics products |
