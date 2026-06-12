@@ -1,5 +1,10 @@
 <div align="center">
 
+<img src="nj_store_banner.png" alt="NJ Store Banner" width="100%">
+
+<br/>
+<br/>
+
 # 🛒 NJ Store
 
 ### A Modern Full-Stack E-Commerce Platform
@@ -712,24 +717,13 @@ Additional documentation is available in `ecommerce/docs/`:
 ---
 
 ## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-Make sure all checks pass before submitting:
-
-```bash
-npm run typecheck && npm run lint && npm run test && npm run build
-```
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, development workflow, and the process for submitting pull requests.
 
 ---
 
 ## 📄 License
 
-This project is private and proprietary.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
