@@ -11,6 +11,9 @@ watchPatterns = [
   "/ecommerce/apps/server/**",
   "/ecommerce/packages/types/**",
   "/ecommerce/packages/utils/**",
+  "/ecommerce/packages/ui/**",
+  "/ecommerce/apps/store-client/package.json",
+  "/ecommerce/apps/admin-client/package.json",
 ]
 
 [deploy]
