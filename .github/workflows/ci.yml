@@ -57,6 +57,11 @@ jobs:
       - name: Setup Env for Docker
         run: cp .env.example .env
 
+      - name: Generate Mongo Keyfile
+        run: |
+          docker volume create njstore_mongo_config
+          docker run --rm -v njstore_mongo_config:/config mongo:7.0 sh -c "openssl rand -base64 756 > /config/dev-mongo-keyfile && chmod 400 /config/dev-mongo-keyfile && chown 999:999 /config/dev-mongo-keyfile"
+
       - name: Start Database & Redis
         run: npm run docker:mongo:up
 
