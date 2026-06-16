@@ -54,6 +54,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Setup Env for Docker
+        run: cp .env.example .env
+
+      - name: Start Database & Redis
+        run: npm run docker:mongo:up
+
       - name: Playwright E2E
         run: npm run e2e
 
