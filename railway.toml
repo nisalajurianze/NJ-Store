@@ -8,12 +8,8 @@ watchPatterns = [
   "/ecommerce/package.json",
   "/ecommerce/package-lock.json",
   "/ecommerce/tsconfig.base.json",
-  "/ecommerce/apps/server/**",
-  "/ecommerce/packages/types/**",
-  "/ecommerce/packages/utils/**",
-  "/ecommerce/packages/ui/**",
-  "/ecommerce/apps/store-client/package.json",
-  "/ecommerce/apps/admin-client/package.json",
+  "/ecommerce/apps/**",
+  "/ecommerce/packages/**",
 ]
 
 [deploy]
