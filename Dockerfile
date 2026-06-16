@@ -14,7 +14,9 @@ RUN npm ci
 
 COPY ecommerce/tsconfig.base.json ./tsconfig.base.json
 COPY ecommerce/apps/server ./apps/server
-COPY ecommerce/packages ./packages
+COPY ecommerce/packages/types ./packages/types
+COPY ecommerce/packages/utils ./packages/utils
+COPY ecommerce/packages/ui ./packages/ui
 
 RUN npm run build --workspace @njstore/types \
   && npm run build --workspace @njstore/utils \
