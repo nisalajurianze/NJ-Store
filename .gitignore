@@ -12,3 +12,18 @@ playwright-report/
 test-results/
 ecommerce/WEBSITE_AUDIT_REPORT.md
 ecommerce/audit-screenshots/
+
+# Dependencies & Builds
+node_modules/
+dist/
+coverage/
+.turbo/
+.vite/
+*.tsbuildinfo
+.env
+.env.local
+.env.test
+.env.production
+.env.development
+*.log
+
