@@ -54,15 +54,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Setup Env for Docker
-        run: cp .env.example .env
 
-      - name: Generate Mongo Keyfile
-        run: |
-          docker compose run --rm --no-deps --entrypoint sh mongo -c "head -c 756 /dev/urandom | base64 > /data/configdb/dev-mongo-keyfile && chown 999:999 /data/configdb/dev-mongo-keyfile && chmod 400 /data/configdb/dev-mongo-keyfile"
-
-      - name: Start Database & Redis
-        run: npm run docker:mongo:up
 
       - name: Playwright E2E
         run: npm run e2e

@@ -2,7 +2,7 @@ import http from 'node:http';
 import net from 'node:net';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import { MongoMemoryServer } from 'mongodb-memory-server';
+import { MongoMemoryReplSet } from 'mongodb-memory-server';
 
 dotenv.config();
 
@@ -69,7 +69,7 @@ const canReachMongo = async (mongoUri: string): Promise<boolean> => {
 };
 
 const start = async (): Promise<void> => {
-  let memoryServer: MongoMemoryServer | null = null;
+  let memoryServer: MongoMemoryReplSet | null = null;
   const configuredMongoUri = process.env.MONGO_URI ?? (isDevelopment ? DEFAULT_DEV_MONGO_URI : undefined);
 
   if (!configuredMongoUri) {
@@ -85,10 +85,8 @@ const start = async (): Promise<void> => {
     const mongoAvailable = await canReachMongo(configuredMongoUri);
 
     if (!mongoAvailable) {
-      memoryServer = await MongoMemoryServer.create({
-        instance: {
-          dbName: 'njstore'
-        }
+      memoryServer = await MongoMemoryReplSet.create({
+        replSet: { count: 1, name: 'rs0' }
       });
 
       const memoryUri = memoryServer.getUri('njstore');
