@@ -1,5 +1,5 @@
 import { LogoLoader } from './LogoLoader';
 
-export const AdminLoader = (): JSX.Element => (
-  <LogoLoader fullHeight />
-);
+export const AdminLoader = ({ fullHeight = false }: { fullHeight?: boolean }): JSX.Element => {
+  return <LogoLoader fullHeight={fullHeight} />;
+};
