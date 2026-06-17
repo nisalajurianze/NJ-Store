@@ -3,7 +3,7 @@ import type { ImageAsset } from '@njstore/types';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ImageOff, ZoomIn } from 'lucide-react';
 import { BacklightGlow } from './BacklightGlow';
-import { replaceCloudinaryUploadTransform } from '../../utils/imageAssets';
+import { replaceCloudinaryUploadTransform, buildCloudinaryImageSrcSet } from '../../utils/imageAssets';
 import { ProgressiveImage } from '../media/ProgressiveImage';
 import { useFastMotionPreference } from '../../hooks/useFastMotionPreference';
 
@@ -239,8 +239,8 @@ export const ImageGallery = ({
                   <MotionProgressiveImage
                     key={`${activeImage.publicId ?? activeImage.url}-${activeImageIndex}`}
                     data-testid="product-gallery-active-image"
-                    src={activeImage.url}
-                    srcSet={activeImage.srcSet}
+                    src={replaceCloudinaryUploadTransform(activeImage.url, 'f_auto,q_auto,w_800')}
+                    srcSet={buildCloudinaryImageSrcSet(activeImage.url, [400, 600, 800, 1200]) || activeImage.srcSet}
                     alt={activeImage.alt ?? productName}
                     loading="eager"
                     decoding="async"

@@ -4,6 +4,7 @@ import { cn } from '@njstore/utils/cn';
 import { Button, Card } from '@njstore/ui';
 import { useCurrencyFormatter } from '../../hooks/useCurrencyFormatter';
 import { ProgressiveImage } from '../media/ProgressiveImage';
+import { replaceCloudinaryUploadTransform } from '../../utils/imageAssets';
 
 interface ProductComparisonGridProps {
   products: ProductComparisonDto[];
@@ -74,7 +75,7 @@ export const ProductComparisonGrid = ({ products, onRemove }: ProductComparisonG
     product.brandLogoUrl ? (
       <span className="mt-3 inline-flex h-9 max-w-28 items-center justify-center rounded-2xl border border-white/10 bg-white px-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.78)]">
         <ProgressiveImage
-          src={product.brandLogoUrl}
+          src={replaceCloudinaryUploadTransform(product.brandLogoUrl, 'f_auto,q_auto,w_128')}
           alt={`${product.brand} logo`}
           loading="lazy"
           decoding="async"

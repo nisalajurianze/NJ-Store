@@ -4,7 +4,7 @@ import { Badge, Card, StarRating } from '@njstore/ui';
 import { ImageOff } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { isKnownUnavailableDemoAsset } from '../../utils/imageAssets';
+import { isKnownUnavailableDemoAsset, replaceCloudinaryUploadTransform, buildCloudinaryImageSrcSet } from '../../utils/imageAssets';
 import { ProgressiveImage } from '../media/ProgressiveImage';
 import { VariantSelector } from './VariantSelector';
 import type { VariantAttributeGroup, VariantAttributeKey, VariantSelection } from './productVariantUtils';
@@ -63,22 +63,13 @@ export const ProductInfoCard = ({
           <div className="mt-3 flex flex-wrap items-center gap-3">
             <span className="inline-flex h-10 w-[5.75rem] shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-slate-200/90 bg-white/95 px-3 py-1.5 shadow-[0_7px_16px_rgba(15,23,42,0.08)] backdrop-blur">
               {hasBrandLogo ? (
-                <>
-                  <span className="flex h-[68%] w-[82%] max-w-[4.75rem] items-center justify-center overflow-hidden">
-                    <ProgressiveImage
-                      src={product.brandLogoUrl}
-                      alt=""
-                      aria-hidden="true"
-                      loading="lazy"
-                      decoding="async"
-                      width={96}
-                      height={48}
-                      className="product-card-brand-logo product-card-brand-logo-badge"
-                      onError={onBrandLogoError}
-                    />
-                  </span>
-                  <span className="sr-only">{product.brand}</span>
-                </>
+                <ProgressiveImage
+                  src={replaceCloudinaryUploadTransform(product.brandLogoUrl!, 'f_auto,q_auto,w_128')}
+                  alt={`${product.brand} logo`}
+                  className="max-h-6 max-w-20 object-contain"
+                  loading="eager"
+                  onError={onBrandLogoError}
+                />
               ) : (
                 <span className="truncate text-sm font-semibold uppercase text-gold">{product.brand}</span>
               )}
@@ -127,7 +118,8 @@ export const ProductInfoCard = ({
                 >
                   {bundleItem.image && !isKnownUnavailableDemoAsset(bundleItem.image.url) ? (
                     <ProgressiveImage
-                      src={bundleItem.image.url}
+                      src={replaceCloudinaryUploadTransform(bundleItem.image.url, 'f_auto,q_auto,w_128')}
+                      srcSet={buildCloudinaryImageSrcSet(bundleItem.image.url, [64, 128]) || bundleItem.image.srcSet}
                       alt={bundleItem.image.alt ?? bundleItem.name}
                       className="h-14 w-14 rounded-xl object-cover"
                       loading="lazy"

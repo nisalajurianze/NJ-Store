@@ -5,6 +5,7 @@ import type { ImageAsset } from '@njstore/types';
 import { useCart } from '../../context/CartContext';
 import { useCurrencyFormatter } from '../../hooks/useCurrencyFormatter';
 import { ProgressiveImage } from '../media/ProgressiveImage';
+import { replaceCloudinaryUploadTransform, buildCloudinaryImageSrcSet } from '../../utils/imageAssets';
 
 const AUTO_DISMISS_MS = 7000;
 
@@ -75,8 +76,8 @@ export const CartAddDrawer = (): JSX.Element | null => {
         <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-[1.1rem] border border-white/12 bg-white/[0.06] sm:h-[4.5rem] sm:w-[4.5rem]">
           {itemImage ? (
             <ProgressiveImage
-              src={itemImage.url}
-              srcSet={itemImage.srcSet}
+              src={replaceCloudinaryUploadTransform(itemImage.url, 'f_auto,q_auto,w_256')}
+              srcSet={buildCloudinaryImageSrcSet(itemImage.url, [128, 256]) || itemImage.srcSet}
               sizes="4.5rem"
               alt={itemImage.alt ?? recentlyAddedItem.product.name}
               loading="lazy"
