@@ -44,7 +44,8 @@ test.describe('checkout flow', () => {
         items: [
           {
             productId: product!.id,
-            quantity: 1
+            quantity: 1,
+            variantIndex: 0
           }
         ]
       }

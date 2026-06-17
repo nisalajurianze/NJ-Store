@@ -22,7 +22,8 @@ test.describe('cart operations', () => {
     const addResponse = await request.post('/api/v1/cart', {
       data: {
         productId: product!.id,
-        quantity: 1
+        quantity: 1,
+        variantIndex: 0
       }
     });
     expect(addResponse.status()).toBe(201);
