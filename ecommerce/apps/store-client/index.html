@@ -61,188 +61,42 @@
           sans-serif;
       }
 
-      .initial-app-shell {
-        box-sizing: border-box;
-        min-height: calc(100svh + 12rem);
-        padding: 0.9rem 1rem 2rem;
-        background:
-          radial-gradient(circle at 18% 0%, rgba(212, 175, 55, 0.12), transparent 26rem),
-          linear-gradient(180deg, #07111f 0%, #0b1526 100%);
-      }
-
-      .initial-app-header,
-      .initial-hero,
-      .initial-side-card {
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background: rgba(255, 255, 255, 0.045);
-        box-shadow: 0 18px 42px rgba(3, 10, 26, 0.18);
-      }
-
-      .initial-app-header {
-        margin: 0 auto 0.65rem;
-        display: flex;
-        max-width: 1180px;
-        height: 4.25rem;
-        align-items: center;
-        justify-content: space-between;
-        border-radius: 1.25rem;
-        padding: 0 1rem;
-      }
-
-      .initial-logo {
-        font-size: 1.06rem;
-        font-weight: 800;
-        letter-spacing: 0;
-      }
-
-      .initial-nav {
-        display: none;
-        gap: 0.6rem;
-      }
-
-      .initial-chip,
-      .initial-line,
-      .initial-block,
-      .initial-orb {
-        animation: initial-pulse 1.4s ease-in-out infinite;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
-        background-size: 220% 100%;
-      }
-
-      .initial-chip {
-        height: 0.9rem;
-        width: 4.8rem;
-        border-radius: 999px;
-      }
-
-      .initial-app-main {
-        display: grid;
-        max-width: 1180px;
-        margin: 0 auto;
-        gap: 0.75rem;
-      }
-
-      .initial-hero,
-      .initial-side-card,
-      .initial-mobile-showcase {
-        border-radius: 1.1rem;
-        overflow: hidden;
-      }
-
-      .initial-hero {
-        min-height: 21rem;
-        padding: 1.1rem;
-        background:
-          radial-gradient(circle at 74% 26%, rgba(212, 175, 55, 0.16), transparent 13rem),
-          linear-gradient(145deg, rgba(5, 12, 28, 1), rgba(8, 18, 38, 1) 58%, rgba(7, 12, 22, 1));
-      }
-
-      .initial-line {
-        height: 0.9rem;
-        border-radius: 999px;
-      }
-
-      .initial-line.title {
-        margin-top: 3rem;
-        height: 2.1rem;
-        max-width: 22rem;
-      }
-
-      .initial-line.copy {
-        margin-top: 1rem;
-        max-width: 28rem;
-      }
-
-      .initial-line.short {
-        margin-top: 0.55rem;
-        max-width: 17rem;
-      }
-
-      .initial-side-card {
-        min-height: 18.75rem;
+      .initial-loader {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(145deg, #252f38 0%, #1a212a 52%, #111821 100%);
+        min-height: 100vh;
+        min-height: 100dvh;
+        background: #07111f;
       }
 
-      .initial-mobile-showcase {
-        min-height: 25.75rem;
-        padding: 1rem;
-        border: 1px solid rgba(255, 255, 255, 0.78);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 252, 245, 0.98) 56%, rgba(247, 250, 252, 1) 100%);
-        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
+      .initial-logo-pulse {
+        width: 80px;
+        height: 80px;
+        animation: logo-pulse 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        filter: drop-shadow(0 0 16px rgba(212, 175, 55, 0.3));
       }
 
-      .initial-orb {
-        width: 11rem;
-        height: 11rem;
-        border-radius: 2rem;
-      }
-
-      @media (min-width: 768px) {
-        .initial-app-shell {
-          padding: 1.1rem 1.5rem 2.5rem;
-        }
-
-        .initial-nav {
-          display: flex;
-        }
-      }
-
-      @media (min-width: 1024px) {
-        .initial-app-main {
-          grid-template-columns: minmax(0, 1.8fr) minmax(18.25rem, 1fr);
-        }
-
-        .initial-hero,
-        .initial-side-card {
-          min-height: 25rem;
-        }
-
-        .initial-mobile-showcase {
-          display: none;
-        }
-      }
-
-      @keyframes initial-pulse {
+      @keyframes logo-pulse {
         0% {
-          background-position: 200% 0;
+          transform: scale(0.95);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 1;
         }
         100% {
-          background-position: -200% 0;
+          transform: scale(0.95);
+          opacity: 0.6;
         }
       }
     </style>
   </head>
   <body class="bg-dark text-white">
     <div id="root">
-      <div class="initial-app-shell" aria-hidden="true">
-        <header class="initial-app-header">
-          <div class="initial-logo">NJ Store</div>
-          <div class="initial-nav">
-            <div class="initial-chip"></div>
-            <div class="initial-chip"></div>
-            <div class="initial-chip"></div>
-          </div>
-        </header>
-        <main class="initial-app-main">
-          <section class="initial-hero">
-            <div class="initial-chip"></div>
-            <div class="initial-line title"></div>
-            <div class="initial-line copy"></div>
-            <div class="initial-line short"></div>
-          </section>
-          <aside class="initial-side-card">
-            <div class="initial-orb"></div>
-          </aside>
-          <aside class="initial-mobile-showcase">
-            <div class="initial-chip"></div>
-            <div class="initial-orb" style="margin: 4.5rem auto 3.5rem"></div>
-            <div class="initial-line copy"></div>
-            <div class="initial-line short"></div>
-          </aside>
-        </main>
+      <div class="initial-loader" aria-hidden="true">
+        <img src="/favicon.svg" alt="Loading NJ Store..." class="initial-logo-pulse" />
       </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
