@@ -344,6 +344,7 @@ const fetchCustomerBroadcastEmails = async () => {
         isEmailVerified: true
     })
         .select('email')
+        .limit(5000)
         .lean();
     return dedupeEmails(customers.map((customer) => customer.email));
 };
@@ -354,11 +355,12 @@ const fetchUnverifiedCustomerBroadcastEmails = async () => {
         isEmailVerified: false
     })
         .select('email')
+        .limit(5000)
         .lean();
     return dedupeEmails(customers.map((customer) => customer.email));
 };
 const fetchNewsletterBroadcastEmails = async () => {
-    const subscribers = await NewsletterSubscriber.find({ isConfirmed: true }).select('email').lean();
+    const subscribers = await NewsletterSubscriber.find({ isConfirmed: true }).select('email').limit(5000).lean();
     return dedupeEmails(subscribers.map((subscriber) => subscriber.email));
 };
 const fetchSpecificUserBroadcastEmails = async (recipientUserIds = []) => {
@@ -371,6 +373,7 @@ const fetchSpecificUserBroadcastEmails = async (recipientUserIds = []) => {
         isActive: true
     })
         .select('email')
+        .limit(5000)
         .lean();
     return dedupeEmails(recipients.map((recipient) => recipient.email));
 };
