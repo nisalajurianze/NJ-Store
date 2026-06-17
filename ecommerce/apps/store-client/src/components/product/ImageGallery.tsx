@@ -240,12 +240,12 @@ export const ImageGallery = ({
                     key={`${activeImage.publicId ?? activeImage.url}-${activeImageIndex}`}
                     data-testid="product-gallery-active-image"
                     src={replaceCloudinaryUploadTransform(activeImage.url, 'f_auto,q_auto,w_800')}
-                    srcSet={buildCloudinaryImageSrcSet(activeImage.url, [400, 600, 800, 1200]) || activeImage.srcSet}
+                    srcSet={buildCloudinaryImageSrcSet(activeImage.url, [400, 600, 800, 1200, 1600, 2400]) || activeImage.srcSet}
                     alt={activeImage.alt ?? productName}
                     loading="eager"
                     decoding="async"
                     fetchPriority="high"
-                    sizes={activeImage.sizes ?? '(min-width: 1280px) 52vw, (min-width: 1024px) 46vw, 94vw'}
+                    sizes={isZoomEnabled ? '300vw' : (activeImage.sizes ?? '(min-width: 1280px) 52vw, (min-width: 1024px) 46vw, 94vw')}
                     className="product-gallery-image relative z-[2]"
                     style={{
                       transformOrigin: `${zoomOrigin.x}% ${zoomOrigin.y}%`
