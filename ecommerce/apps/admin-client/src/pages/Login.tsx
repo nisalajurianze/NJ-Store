@@ -143,11 +143,11 @@ export const Login = (): JSX.Element => {
             </div>
             {isGoogleLoading ? <p className="text-center text-xs text-gray-500">Checking workspace access...</p> : null}
           </div>
-        ) : import.meta.env.DEV ? (
+        ) : (
           <div className="mt-5 rounded-[20px] border border-white/10 bg-white/[0.04] p-4 text-sm leading-6 text-gray-400">
             Add <code>VITE_GOOGLE_CLIENT_ID</code> to the admin client env and <code>GOOGLE_CLIENT_ID</code> to the server env to enable admin Google sign-in.
           </div>
-        ) : null}
+        )}
       </Card>
     </div>
   );
