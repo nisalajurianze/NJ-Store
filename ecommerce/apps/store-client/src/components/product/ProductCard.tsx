@@ -14,7 +14,7 @@ import {
   type SyntheticEvent,
   type TouchEvent
 } from 'react';
-import type { ProductCardDto, ProductDetailDto } from '@njstore/types';
+import type { ImageAsset, ProductCardDto, ProductDetailDto } from '@njstore/types';
 import { AnimatePresence, motion, useDragControls, useReducedMotion, type PanInfo } from 'framer-motion';
 import { ArrowLeft, Heart, ImageOff, Scale } from 'lucide-react';
 import { Badge, Button } from '@njstore/ui';
@@ -31,7 +31,7 @@ import { useFastMotionPreference } from '../../hooks/useFastMotionPreference';
 import { useInView } from '../../hooks/useInView';
 import { productService } from '../../services/productService';
 import { getApiErrorMessage } from '../../utils/apiError';
-import { isKnownUnavailableDemoAsset } from '../../utils/imageAssets';
+import { buildCloudinaryImageSrcSet, isKnownUnavailableDemoAsset, replaceCloudinaryUploadTransform } from '../../utils/imageAssets';
 import { toast } from '../../utils/lazyToast';
 import { subscribeToMediaQueryChange } from '../../utils/mediaQuery';
 import { STOREFRONT_PRODUCT_CARD_HEIGHT_CLASSNAME } from './productCardLayout';
@@ -243,15 +243,23 @@ const ProductCardComponent = ({
   );
   const safeActiveImageIndex = availablePreviewImages.length ? Math.min(activeImageIndex, availablePreviewImages.length - 1) : 0;
   const renderedPreviewImages = useMemo(() => {
+    const mapWithCloudinaryOptimizations = (image: ImageAsset, index: number) => ({
+      imageIndex: index,
+      image: {
+        ...image,
+        url: replaceCloudinaryUploadTransform(image.url, 'f_auto,q_auto,w_800,c_fit'),
+        srcSet: image.srcSet || buildCloudinaryImageSrcSet(image.url, [400, 600, 800], 'f_auto,q_auto,c_fit')
+      }
+    });
+
     if (availablePreviewImages.length <= 2) {
-      return availablePreviewImages.map((image, imageIndex) => ({ image, imageIndex }));
+      return availablePreviewImages.map((image, imageIndex) => mapWithCloudinaryOptimizations(image, imageIndex));
     }
 
     const nextImageIndex = (safeActiveImageIndex + 1) % availablePreviewImages.length;
-    return [safeActiveImageIndex, nextImageIndex].map((imageIndex) => ({
-      image: availablePreviewImages[imageIndex]!,
-      imageIndex
-    }));
+    return [safeActiveImageIndex, nextImageIndex].map((imageIndex) =>
+      mapWithCloudinaryOptimizations(availablePreviewImages[imageIndex]!, imageIndex)
+    );
   }, [availablePreviewImages, safeActiveImageIndex]);
   const isPreviewBudgetGranted = useProductPreviewBudget({
     eligible: availablePreviewImages.length > 1 && !isOptionsPanelOpen && !isDefaultOptionDragging,
@@ -2124,7 +2132,7 @@ const ProductCardComponent = ({
               <>
                 <span className="flex h-[68%] w-[82%] items-center justify-center overflow-hidden">
                   <ProgressiveImage
-                    src={product.brandLogoUrl}
+                    src={product.brandLogoUrl ? replaceCloudinaryUploadTransform(product.brandLogoUrl, 'f_auto,q_auto,w_128,c_fit') : undefined}
                     alt=""
                     aria-hidden="true"
                     loading="lazy"

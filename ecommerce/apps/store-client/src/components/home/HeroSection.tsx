@@ -35,7 +35,7 @@ import { useTranslation } from 'react-i18next';
 import { useImageFallback } from '../../hooks/useImageFallback';
 import { useFastMotionPreference } from '../../hooks/useFastMotionPreference';
 import { useShowcase } from '../../hooks/useShowcase';
-import { isKnownUnavailableDemoAsset } from '../../utils/imageAssets';
+import { buildCloudinaryImageSrcSet, isKnownUnavailableDemoAsset, replaceCloudinaryUploadTransform } from '../../utils/imageAssets';
 import { ProgressiveImage } from '../media/ProgressiveImage';
 
 import {
@@ -76,21 +76,6 @@ type ShowcaseTouchPoint = {
   clientY: number;
 };
 
-const replaceCloudinaryUploadTransform = (url: string, transform: string): string => {
-  if (!url.includes('res.cloudinary.com') || !url.includes('/upload/')) {
-    return url;
-  }
-
-  const [prefix, suffix] = url.split('/upload/', 2);
-  if (!prefix || !suffix) {
-    return url;
-  }
-
-  const versionedAssetMatch = suffix.match(/(?:^|\/)(v\d+\/.*)$/);
-  const assetPath = versionedAssetMatch?.[1] ?? suffix.replace(/^\/+/, '');
-  return `${prefix}/upload/${transform}/${assetPath}`;
-};
-
 const getHeroBackgroundUrl = (url: string, isMobilePerformanceMode: boolean): string =>
   replaceCloudinaryUploadTransform(url, isMobilePerformanceMode ? 'f_auto,q_auto,w_960' : 'f_auto,q_auto,w_1920');
 
@@ -99,9 +84,6 @@ const getHeroBadgeImageUrl = (url: string, isMobilePerformanceMode: boolean): st
 
 const getHeroVisualFallbackUrl = (url: string, isMobilePerformanceMode: boolean): string =>
   replaceCloudinaryUploadTransform(url, isMobilePerformanceMode ? 'f_auto,q_auto,w_640' : 'f_auto,q_auto,w_960');
-
-const buildCloudinaryImageSrcSet = (url: string, widths: readonly number[]): string =>
-  widths.map((width) => `${replaceCloudinaryUploadTransform(url, `f_auto,q_auto,w_${width}`)} ${width}w`).join(', ');
 
 const isInteractiveShowcaseTarget = (target: EventTarget | null): boolean =>
   target instanceof Element && Boolean(target.closest('a, button, input, select, textarea, [role="button"]'));

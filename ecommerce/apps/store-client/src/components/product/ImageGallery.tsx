@@ -3,6 +3,7 @@ import type { ImageAsset } from '@njstore/types';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ImageOff, ZoomIn } from 'lucide-react';
 import { BacklightGlow } from './BacklightGlow';
+import { replaceCloudinaryUploadTransform } from '../../utils/imageAssets';
 import { ProgressiveImage } from '../media/ProgressiveImage';
 import { useFastMotionPreference } from '../../hooks/useFastMotionPreference';
 
@@ -25,13 +26,7 @@ interface ImageGalleryProps {
 const MotionProgressiveImage = motion.create(ProgressiveImage);
 const GALLERY_THUMB_WIDTHS = [96, 160, 240] as const;
 
-const replaceCloudinaryUploadTransform = (url: string, transform: string): string => {
-  if (!url.includes('res.cloudinary.com') || !url.includes('/upload/')) {
-    return url;
-  }
 
-  return url.replace(/\/upload\/(?:[^/]+\/)?/, `/upload/${transform}/`);
-};
 
 const getGalleryThumbUrl = (url: string): string =>
   replaceCloudinaryUploadTransform(url, 'f_auto,q_auto,c_fit,w_160,h_160');
