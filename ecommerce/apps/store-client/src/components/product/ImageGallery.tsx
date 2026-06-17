@@ -1,4 +1,4 @@
-import { useEffect, useRef, type PointerEvent as ReactPointerEvent } from 'react';
+import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import type { ImageAsset } from '@njstore/types';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ImageOff, ZoomIn } from 'lucide-react';
@@ -58,6 +58,20 @@ export const ImageGallery = ({
   const reduceEffects = Boolean(reduceMotion || fastMotion);
   const activeImage = images[activeImageIndex] ?? images[0];
   const isInlineZoomActive = isZoomEnabled;
+
+  const [highResLoadedFor, setHighResLoadedFor] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!activeImage) return;
+    const highResUrl = replaceCloudinaryUploadTransform(activeImage.url, 'f_auto,q_auto,w_2400');
+    const img = new window.Image();
+    img.src = highResUrl;
+    img.onload = () => {
+      setHighResLoadedFor(activeImage.url);
+    };
+  }, [activeImage]);
+
+  const isHighResReady = activeImage && highResLoadedFor === activeImage.url;
   const activePointersRef = useRef(new Map<number, { clientX: number; clientY: number }>());
   const panStartRef = useRef<{ clientX: number; clientY: number; offset: { x: number; y: number } } | null>(null);
   const pinchStartRef = useRef<{ distance: number; scale: number; offset: { x: number; y: number } } | null>(null);
@@ -239,13 +253,13 @@ export const ImageGallery = ({
                   <MotionProgressiveImage
                     key={`${activeImage.publicId ?? activeImage.url}-${activeImageIndex}`}
                     data-testid="product-gallery-active-image"
-                    src={replaceCloudinaryUploadTransform(activeImage.url, 'f_auto,q_auto,w_800')}
-                    srcSet={buildCloudinaryImageSrcSet(activeImage.url, [400, 600, 800, 1200, 1600, 2400]) || activeImage.srcSet}
+                    src={isHighResReady ? replaceCloudinaryUploadTransform(activeImage.url, 'f_auto,q_auto,w_2400') : replaceCloudinaryUploadTransform(activeImage.url, 'f_auto,q_auto,w_800')}
+                    srcSet={isHighResReady ? undefined : buildCloudinaryImageSrcSet(activeImage.url, [400, 600, 800, 1200, 1600, 2400]) || activeImage.srcSet}
                     alt={activeImage.alt ?? productName}
                     loading="eager"
                     decoding="async"
                     fetchPriority="high"
-                    sizes={isZoomEnabled ? '300vw' : (activeImage.sizes ?? '(min-width: 1280px) 52vw, (min-width: 1024px) 46vw, 94vw')}
+                    sizes={isZoomEnabled || isHighResReady ? '300vw' : (activeImage.sizes ?? '(min-width: 1280px) 52vw, (min-width: 1024px) 46vw, 94vw')}
                     className="product-gallery-image relative z-[2]"
                     style={{
                       transformOrigin: `${zoomOrigin.x}% ${zoomOrigin.y}%`
