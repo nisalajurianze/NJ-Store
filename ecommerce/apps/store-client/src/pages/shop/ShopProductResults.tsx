@@ -57,7 +57,7 @@ export const ShopProductResults = ({
   <>
     <div className="relative">
       {isInitialProductLoad ? (
-        <ProductSkeletonGrid viewMode={viewMode} />
+        <ProductSkeletonGrid />
       ) : (
         <div
           ref={productListRef}
@@ -123,6 +123,6 @@ export const ShopProductResults = ({
       )}
     </div>
 
-    {!isInitialProductLoad && isLoadingMore ? <ProductLoadMoreSkeletons viewMode={viewMode} /> : null}
+    {!isInitialProductLoad && isLoadingMore ? <ProductLoadMoreSkeletons /> : null}
   </>
 );

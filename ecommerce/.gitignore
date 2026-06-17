@@ -42,3 +42,5 @@ packages/types/src/**/*.d.ts
 packages/utils/src/**/*.js
 packages/utils/src/**/*.d.ts
 !packages/utils/src/build/*.js
+
+.vercel

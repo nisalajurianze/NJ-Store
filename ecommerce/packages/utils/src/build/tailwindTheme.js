@@ -19,6 +19,15 @@ export const sharedThemeExtend = {
   },
   boxShadow: {
     gold: '0 18px 40px rgba(0, 0, 0, 0.28)'
+  },
+  keyframes: {
+    'logo-pulse': {
+      '0%, 100%': { transform: 'scale(1)', opacity: '1', filter: 'drop-shadow(0 0 16px rgba(212,175,55,0.3))' },
+      '50%': { transform: 'scale(0.92)', opacity: '0.8', filter: 'drop-shadow(0 0 24px rgba(212,175,55,0.6))' }
+    }
+  },
+  animation: {
+    'logo-pulse': 'logo-pulse 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite'
   }
 };
 
