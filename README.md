@@ -64,11 +64,16 @@ To explore the admin panel and shopper features, you can log in using the pre-co
 
 ## 📸 Screenshots
 
-*(To add screenshots, simply place your image files in a folder named `screenshots` and update these paths)*
-
 <div align="center">
   <img src="screenshots/storefront.png" alt="Customer Storefront Demo" width="48%">
   <img src="screenshots/admin_dashboard.png" alt="Admin Dashboard Demo" width="48%">
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="screenshots/shop.png" alt="Shop Page" width="48%">
+  <img src="screenshots/cart.png" alt="Shopping Cart" width="48%">
 </div>
 
 <br/>
