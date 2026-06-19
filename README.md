@@ -59,6 +59,7 @@ To explore the admin panel and shopper features, you can log in using the pre-co
 | Role | Email Address | Password |
 |---|---|---|
 | **System Administrator** | `admin@njstore.com` | `Admin@123` |
+| **Admin Demo (Read-only)** | `viewdemo@admin.lk` | `View@admin123` |
 
 ---
 
