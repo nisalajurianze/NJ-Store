@@ -62,6 +62,16 @@ To explore the admin panel and shopper features, you can log in using the pre-co
 
 ---
 
+## 🎥 Video Walkthrough
+
+### Customer Storefront
+https://github.com/nisalajurianze/NJ-Store/raw/main/videos/store_recording.mp4
+
+### Admin Dashboard
+https://github.com/nisalajurianze/NJ-Store/raw/main/videos/admin_record.mp4
+
+---
+
 ## 📸 Screenshots
 
 <div align="center">
